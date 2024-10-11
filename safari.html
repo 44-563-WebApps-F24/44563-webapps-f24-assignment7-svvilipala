@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safari Adventure</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #e0f7fa; 
+            margin: 0;
+        }
+        h1 {
+            color: #ff7043; 
+            text-align: center; 
+            margin-bottom: 30px; 
+        }
+        .info {
+            background-color: #ffffff;
+            border: 5px solid #ffccbc; 
+            border-radius: 10px;
+            padding: 5px;
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); 
+            margin-bottom: 5px; 
+            display: inline-block;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); 
+            gap: 10px; 
+        }
+        .grid div {
+            display: flex; /* Center content */
+            justify-content: center; /* Center horizontally */
+            align-items: center;
+            width: 150px; 
+            height: 150px; 
+            overflow: hidden;
+        }
+        .grid img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sri Vidya Vilipala goes on safari</h1>
+    <div class="container-fluid">
+        <div class="info bg-info txt-black">
+            Click on the locations to find rare animals, watch out for the lion.
+        </div>
+        <div class="info bg-warning text-blac" id="locations">
+            Number of locations checked is zero.
+        </div>
+        <div class="info bg-success text-black" id="score">
+            Score is zero. 
+        </div>
+        <div class="info bg-primary text-black">
+            Click for help. 
+        </div>
+        <div class="info bg-danger text-black" id="help">
+            Help report.
+        </div>
+    </div>
+
+    <div class="grid">
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img1" onclick="check(0)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img2" onclick="check(1)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img3" onclick="check(2)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img4" onclick="check(3)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img5" onclick="check(4)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img6" onclick="check(5)"></div>
+     </div>
+     <div class="grid">
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img7" onclick="check(6)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img8" onclick="check(7)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img9" onclick="check(8)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img10" onclick="check(9)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img11" onclick="check(10)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img12" onclick="check(11)"></div>
+     </div>
+     <div class="grid">
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img13" onclick="check(12)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img14" onclick="check(13)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img15" onclick="check(14)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img16" onclick="check(15)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img17" onclick="check(16)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img18" onclick="check(17)"></div>
+     </div>
+     <div class="grid">
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img19" onclick="check(18)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img20" onclick="check(19)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img21" onclick="check(20)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img22" onclick="check(21)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img23" onclick="check(22)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img24" onclick="check(23)"></div>
+     </div>
+     <div class="grid">
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img25" onclick="check(24)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img26" onclick="check(25)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img27" onclick="check(26)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img28" onclick="check(27)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img29" onclick="check(28)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img30" onclick="check(29)"></div>
+     </div>
+     <div class="grid">
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img31" onclick="check(30)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img32" onclick="check(31)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img33" onclick="check(32)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img34" onclick="check(33)"></div> 
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img35" onclick="check(34)"></div>
+        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img36" onclick="check(35)"></div>
+     </div>
+     
+</body>
+</html>
