@@ -1,120 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safari Adventure</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>safair</title>
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #e0f7fa; 
-            margin: 0;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 20px;
         }
-        h1 {
-            color: #ff7043; 
+
+        header {
+            text-align:center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .instructions,
+        .locations,
+        .score,
+        .help-click,
+        .help-report {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #75ed8f;
             text-align: center; 
-            margin-bottom: 30px; 
         }
-        .info {
-            background-color: #ffffff;
-            border: 5px solid #ffccbc; 
-            border-radius: 10px;
-            padding: 5px;
-            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); 
-            margin-bottom: 5px; 
-            display: inline-block;
+
+        .help-report {
+            display: none;
         }
-        .grid {
+
+        .game-field {
             display: grid;
-            grid-template-columns: repeat(6, 1fr); 
-            gap: 10px; 
+            grid-template-columns: repeat(6, 50px);
+            grid-template-rows: repeat(6, 50px);
+            gap: 5px;
+            justify-content: center;
+            margin-top: 20px;
         }
-        .grid div {
-            display: flex; /* Center content */
-            justify-content: center; /* Center horizontally */
+
+        .game-tile {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
             align-items: center;
-            width: 150px; 
-            height: 150px; 
-            overflow: hidden;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer; 
         }
-        .grid img {
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            border-radius: 8px;
+
+        .game-tile img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
         }
     </style>
 </head>
-
 <body>
-    <h1>Sri Vidya Vilipala goes on safari</h1>
-    <div class="container-fluid">
-        <div class="info bg-info txt-black">
-            Click on the locations to find rare animals, watch out for the lion.
-        </div>
-        <div class="info bg-warning text-blac" id="locations">
-            Number of locations checked is zero.
-        </div>
-        <div class="info bg-success text-black" id="score">
-            Score is zero. 
-        </div>
-        <div class="info bg-primary text-black">
-            Click for help. 
-        </div>
-        <div class="info bg-danger text-black" id="help">
-            Help report.
-        </div>
+    <h1><center>Sri Vidya Vilipala goes on safair</center></h1>
+    <div class="instructions">Click on the locations to find rare animals, watch out for the lion!</div>
+
+    <div id="locations" class="locations">Number of locations checked is zero.</div>
+    <div id="score" class="score">Score is zero.</div>
+    <div class="help-click">Click for help.</div>
+    <div id="help" class="help-report">Help report</div>
+
+    <div class="game-field">
+        
+        <div class="game-tile" onclick="check(0)"><img id="img0" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(1)"><img id="img1" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(2)"><img id="img2" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(3)"><img id="img3" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(4)"><img id="img4" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(5)"><img id="img5" src="tree.jpg" alt="Tree"></div>
+
+        <div class="game-tile" onclick="check(6)"><img id="img6" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(7)"><img id="img7" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(8)"><img id="img8" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(9)"><img id="img9" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(10)"><img id="img10" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(11)"><img id="img11" src="tree.jpg" alt="Tree"></div>
+
+        <div class="game-tile" onclick="check(12)"><img id="img12" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(13)"><img id="img13" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(14)"><img id="img14" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(15)"><img id="img15" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(16)"><img id="img16" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(17)"><img id="img17" src="tree.jpg" alt="Tree"></div>
+
+        <div class="game-tile" onclick="check(18)"><img id="img18" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(19)"><img id="img19" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(20)"><img id="img20" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(21)"><img id="img21" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(22)"><img id="img22" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(23)"><img id="img23" src="tree.jpg" alt="Tree"></div>
+
+        <div class="game-tile" onclick="check(24)"><img id="img24" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(25)"><img id="img25" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(26)"><img id="img26" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(27)"><img id="img27" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(28)"><img id="img28" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(29)"><img id="img29" src="tree.jpg" alt="Tree"></div>
+
+        <div class="game-tile" onclick="check(30)"><img id="img30" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(31)"><img id="img31" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(32)"><img id="img32" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(33)"><img id="img33" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(34)"><img id="img34" src="tree.jpg" alt="Tree"></div>
+        <div class="game-tile" onclick="check(35)"><img id="img35" src="tree.jpg" alt="Tree"></div>
     </div>
 
-    <div class="grid">
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img1" onclick="check(0)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img2" onclick="check(1)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img3" onclick="check(2)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img4" onclick="check(3)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img5" onclick="check(4)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img6" onclick="check(5)"></div>
-     </div>
-     <div class="grid">
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img7" onclick="check(6)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img8" onclick="check(7)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img9" onclick="check(8)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img10" onclick="check(9)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img11" onclick="check(10)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img12" onclick="check(11)"></div>
-     </div>
-     <div class="grid">
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img13" onclick="check(12)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img14" onclick="check(13)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img15" onclick="check(14)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img16" onclick="check(15)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img17" onclick="check(16)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img18" onclick="check(17)"></div>
-     </div>
-     <div class="grid">
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img19" onclick="check(18)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img20" onclick="check(19)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img21" onclick="check(20)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img22" onclick="check(21)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img23" onclick="check(22)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img24" onclick="check(23)"></div>
-     </div>
-     <div class="grid">
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img25" onclick="check(24)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img26" onclick="check(25)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img27" onclick="check(26)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img28" onclick="check(27)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img29" onclick="check(28)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img30" onclick="check(29)"></div>
-     </div>
-     <div class="grid">
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img31" onclick="check(30)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img32" onclick="check(31)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img33" onclick="check(32)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img34" onclick="check(33)"></div> 
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img35" onclick="check(34)"></div>
-        <div><img src="Tree.jpg" alt="Tree" width="100" height="100" id="img36" onclick="check(35)"></div>
-     </div>
-     
+    <script>
+        const ids = Array.from({length: 36}, (_, i) => `img${i}`);
+        let score = 0;
+        let locationsVisited = 0;
+        let lastLocation = 0;
+        const zebraLocations = [1, 8, 12, 22, 34];
+        const lionLocation = 14;
+        let gameOver = false;
+
+        function check(position) {
+            if (gameOver) return;
+
+            const id = ids[position];
+            const imageElement = document.getElementById(id);
+
+            
+            if (position === lionLocation) {
+                imageElement.src = "lion.jpg"; 
+                gameOver = true;
+                score -= 2;
+                alert("Oh no! You found the lion! Game Over.");
+            } else if (zebraLocations.includes(position)) {
+                imageElement.src = "zebra.jpg"; 
+                score += 4;
+            } else {
+                imageElement.src = "elephant.jpg"; 
+                score += 1;
+            }
+
+            locationsVisited++;
+            document.getElementById('score').innerText = `Score: ${score}`;
+            document.getElementById('locations').innerText = `Number of locations checked: ${locationsVisited}`;
+            lastLocation = position;
+        }
+
+        function help() {
+            const row = Math.floor(lastLocation / 6);
+            const col = lastLocation % 6;
+
+            const closestLocations = [
+                lastLocation - 1, 
+                lastLocation + 1, 
+                lastLocation - 6, 
+                lastLocation + 6  
+            ].map(loc => (loc + 36) % 36); 
+
+            let helpMessage = "";
+
+            
+            if (closestLocations.some(loc => zebraLocations.includes(loc))) {
+                helpMessage = "I see stripes!";
+            } else {
+               
+                const lionRow = Math.floor(lionLocation / 6);
+                const lionCol = lionLocation % 6;
+                if (Math.abs(row - lionRow) <= 1 && Math.abs(col - lionCol) <= 1) {
+                    helpMessage = "Rawr!";
+                } else {
+                    helpMessage = "It's grey.";
+                }
+            }
+
+            document.getElementById('help').innerText = helpMessage;
+            document.getElementById('help').style.display = 'block';
+        }
+
+        document.querySelector('.help-click').onclick = help;
+    </script>
 </body>
 </html>
+
+
+    
+
