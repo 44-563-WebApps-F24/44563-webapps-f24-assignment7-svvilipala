@@ -29,83 +29,113 @@
   </style>
 </head>
 
+    <body>
+        
+        <div id="target">Your time</div>
+        <div id="counter">Count</div>
+        <button id="start" >Start Timer</button>
+        <button id="stop" >Stop Timer</button>
+    
+        <script>
+            let stopTime;          
+            let countdownTime = 4;  
+            let timerActive = false;  
+            let targetTime = 4000;  
+    
+            
+            function recordTime() {
+                if (timerActive) {
+                    stopTime = Date.now();  
+                    console.log("Stop Time:", stopTime);  
+                }
+            }
+    
+            
+            document.getElementById('stop').onclick = recordTime;
+    
+            
+            function startTime() {
+                stopTime = undefined; 
+                timerActive = true;    
+                document.getElementById('target').textContent = "Your time";  
+                let startTimeValue = Date.now();  
+    
+                
+                for (let i = 0; i <= 4; i++) {
+                    setTimeout(() => {
+                        document.getElementById('counter').textContent = countdownTime - i;  
+                    }, i * 1000); 
+                }
+    
+                
+                setTimeout(() => {
+                    if (!stopTime) {
+                        
+                        document.getElementById('target').textContent = "Too Slow!";
+                    } else {
+                       
+                        const timeDifference = stopTime - (startTimeValue + targetTime);  
+                        document.getElementById('target').textContent = `Time was ${Math.abs(timeDifference)} ms`;
+                    }
+                    timerActive = false;  
+                }, targetTime);  
+            }
+    
+            
+            document.getElementById('start').onclick = startTime;    </script>
+    </body>
+    </html>
+
+    <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timing Game</title>
+</head>
 <body>
+    <h1>Sri Vidya Vilipala Speed Check</h1>
+    <div id="target">Your time</div>
+    <div id="counter">Count: 0</div>
+    <button id="startButton">Start Timer</button>
+    <button id="stopButton">Stop Timer</button>
+    
+    <script>
+        let stopTime;
 
-  <div id="countdown" class="timer">Count: </div>
-  <div id="target" class="timer">Your time: </div>
-
-  <button id="startButton">Start Timer</button>
-  <button id="stopButton">Stop Timer</button>
-
-  <script>
-//     let stopTime; 
-//     let countdownStarted = false; 
-
-//     function recordTime() {
-//       stopTime = Date.now(); 
-//       console.log(`Stop Time: ${stopTime}`); 
-//     }
-
-//     document.getElementById('stopButton').onclick = recordTime;
-
-//     function startTime() {
-//       if (countdownStarted) return; 
-
-//       countdownStarted = true; 
-//       document.getElementById('target').innerText = 'Your time: '; 
-
-//       for (let i = 0; i < 5; i++) {
-//         setTimeout(() => {
-//           document.getElementById('countdown').innerText = `Count: ${5 - i}`; 
-//         }, i * 1000); 
-//       }
-
-//       setTimeout(() => {
-//         if (stopTime === undefined) {
-//           document.getElementById('target').innerText = "Too Slow";
-//         } else {
-//           const elapsedTime = Date.now() - stopTime; 
-//           document.getElementById('target').innerText = `Time was ${elapsedTime} ms`;
-//         }
-//         countdownStarted = false;
-//       }, 5000); 
-//     }
-
-//     document.getElementById('startButton').onclick = startTime; 
-
-let stopTime;
-
-function startTime() {
-    // Clear previous stopTime
-    stopTime = undefined;
-
-    // Countdown from 4 to 0
-    for (let i = 0; i <= 4; i++) {
-        setTimeout(function() {
-            document.getElementById('countdown').innerHTML = 4 - i;
-        }, i * 1000);
-    }
-
-    // Final check after countdown
-    setTimeout(function() {
-        if (stopTime === undefined) {
-            document.getElementById('target').innerHTML = "Too Slow";
-        } else {
-            const elapsedTime = Date.now() - stopTime;
-            document.getElementById('target').innerHTML = "Time was " + elapsedTime + " ms";
+        function recordTime() {
+            stopTime = Date.now();
+            console.log("Stop Time:", stopTime);
         }
-    }, 5000);
-}
 
-// Attach event listener to start button
-document.getElementById('startButton').onclick = startTime;
+        document.getElementById('stopButton').onclick = recordTime;
 
-// Stop timer function to be called from another button or action
-function stopTimer() {
-    stopTime = Date.now();
-}
+        function startTime() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    document.getElementById('counter').innerHTML = "Count: " + i;
+                }, (4 - i) * 1000);
+            }
+            
+            setTimeout(() => {
+                if (stopTime === undefined) {
+                    document.getElementById('target').innerHTML = "Too Slow";
+                } else {
+                    const elapsedTime = Date.now() - stopTime;
+                    document.getElementById('target').innerHTML = "Time was " + elapsedTime + " ms";
+                }
+            }, 5000); // Total time after countdown
+        }
 
-</script>
+        document.getElementById('startButton').onclick = startTime;
+    </script>
 </body>
-
 </html>
+    
+
+    
+    
+
+
+    
+ -->
