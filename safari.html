@@ -180,6 +180,35 @@
         }
 
         document.querySelector('.help-click').onclick = help;
+
+        function help(){
+                row = Math.floor(lastLocation / 6);
+                col = lastLocation % 6;
+                lion_row = Math.floor(lionLocation / 6);
+                lion_col = lionLocation % 6;
+
+                closestLocations = [(lastLocation - 1 + 36) % 36, (lastLocation + 1) % 36, (lastLocation - 6 + 36) % 36, (lastLocation + 6) % 36];
+
+                for (loc of closestLocations) {
+                if (Math.abs(lion_row - row) <= 1 && Math.abs(lion_col - col) <= 1){
+                    result = "rawr";
+                    break;
+                    }
+
+                
+                else if (zebraLocations.includes(loc)) {
+                    result = "I see stripes";
+                    break;
+                    }
+                
+                
+                else{
+                    result = "Its gray";
+                    }
+
+                }
+                document.getElementById("help").innerHTML=result;
+            }
     </script>
 </body>
 </html>
